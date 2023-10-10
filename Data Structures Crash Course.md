@@ -1,19 +1,20 @@
 - [Complexity Analysis](#Complexity-Analysis)
-- [Memory](#Memory)
-- [Big O Notation](#Big-O-Notation)
-- [Logarithm](#Logarithm)
-- [Arrays](#Arrays)
-- [Linked Lists](#Linked-Lists)
-- [Hash Tables](#Hash-Tables)
-- [Stacks and Queues](#Stacks-and-Queues)
-- [Strings](#Strings)
-- [Graphs](#Graphs)
-- [Trees](#Trees)
+- [Memory](#Memory) - TODO
+- [Big O Notation](#Big-O-Notation) - TODO
+- [Logarithm](#Logarithm) - TODO
+- [Arrays](#Arrays) - TODO
+- [Linked Lists](#Linked-Lists) - TODO
+- [Hash Tables](#Hash-Tables) - TODO
+- [Stacks and Queues](#Stacks-and-Queues) - TODO
+- [Strings](#Strings) - TODO
+- [Graphs](#Graphs) - TODO
+- [Trees](#Trees) - TODO
 
 ____________________________________________________________________________________________________________________________________________________________________________________________________
 
 ## Complexity Analysis
 
+```
 Analiza złożoności (ang. Complexity Analysis) w kontekście programowania to proces oceny i pomiaru złożoności algorytmów lub fragmentów kodu komputerowego. Jest to istotny aspekt w tworzeniu oprogramowania, ponieważ pomaga programistom zrozumieć, jakie zasoby (takie jak czas i pamięć) są potrzebne do wykonywania danego zadania lub algorytmu. Analiza złożoności ma na celu określenie, jak szybko lub efektywnie program będzie działać w zależności od rozmiaru danych wejściowych.
 
 Istnieją dwie główne kategorie analizy złożoności:
@@ -32,7 +33,7 @@ Przykłady analizy złożoności to:
 - Ocena złożoności algorytmów grafowych (np. algorytmy przeszukiwania grafów).
 
 Analiza złożoności jest kluczowym narzędziem w projektowaniu wydajnych i skalowalnych programów oraz umożliwia programistom podejmowanie informowanych decyzji dotyczących optymalizacji kodu.
-
+```
 ____________________________________________________________________________________________________________________________________________________________________________________________________
 
 ## Memory
@@ -52,7 +53,8 @@ Broadly speaking memory is the foundational layer of computing where all data is
 - The amount of memory that a machine has is bounded, making it valuable to limit how much memory an algorithm takes up
 - Accessing a byte of a fixed number of bytes (like 4 bytes or 8 bytes in the case of 32-bit and 64-bit integers) is an elementary operation, which can be looselt treated as a singlee unit of operational work
 
-Czat GPT
+#### Czat GPT
+```
 Pamięć komputerowa, zwana również pamięcią systemową lub pamięcią operacyjną (RAM - Random Access Memory), to istotny element komputera, który służy do przechowywania danych i programów, nad którymi obecnie pracuje. Pamięć ta jest odczytywalna i zapisywalna, co oznacza, że można w niej przechowywać i modyfikować dane w czasie rzeczywistym. Oto główne cechy i funkcje pamięci komputerowej:
 
 Szybki dostęp: Pamięć RAM zapewnia bardzo szybki dostęp do danych w porównaniu do innych rodzajów pamięci, takich jak dyski twarde. Jest to kluczowe dla wydajności komputera, ponieważ umożliwia szybkie odczytywanie i zapisywanie danych przez procesor.
@@ -70,7 +72,7 @@ Wirtualna pamięć: Systemy operacyjne mogą tworzyć wirtualną pamięć, korzy
 Typy pamięci RAM: Istnieją różne rodzaje pamięci RAM, w tym DDR (Double Data Rate), SDRAM (Synchronous Dynamic Random Access Memory) i wiele innych. Każdy z tych typów ma swoje własne cechy i prędkości.
 
 Pamięć RAM jest jednym z kluczowych czynników wpływających na ogólną wydajność komputera. Im większa i szybsza pamięć RAM, tym komputer jest w stanie obsłużyć większą ilość zadań i działać z większą wydajnością. Jednakże sama pamięć RAM nie przechowuje danych po wyłączeniu zasilania, dlatego ważne jest regularne zapisywanie danych na dysku twardym lub innych trwałych nośnikach
-
+```
 ____________________________________________________________________________________________________________________________________________________________________________________________________
 
 ## Big O Notation
@@ -98,6 +100,46 @@ ________________________________________________________________________________
 ____________________________________________________________________________________________________________________________________________________________________________________________________
 
 ## Strings
+
+One of the fundamenta data types in CS, strings are stored in memory as arrays of integers, where each character in a given string is mapped to an integer via some character-encoding standard like ASCII.
+
+Strings bahave much like normal arrays with the main distinction being that, in most programming languages (C++ is notable exeption), strings are **immutable**, meaning thay they can not be edited after creation. This also menas that simple operations like appending a character to a string are more expensive than might appear.
+
+The canonical example of an operation that is deceptively expensive due to string immutability is the following:
+```
+string = "This is a string"
+newString = ""
+
+for character in string:
+  newString += character
+```
+
+The opration above has a time complexity of O(n^2) where n is the length of string, because each addition of a character to newString creates an entirely new string and is itself an O(n) operation. Therefore, n O(n) operations are performed, leading to an O(n^2) time-complexity operation overall.
+
+#### Czat GPT
+```
+W kontekście struktur danych, "Strings" (ciągi znaków) są jednym z podstawowych i powszechnie używanych typów danych. Stringi reprezentują sekwencję znaków, takich jak litery, cyfry, znaki specjalne itp. Są wykorzystywane do przechowywania i manipulowania tekstem w różnych językach programowania. Oto kilka kluczowych cech i operacji związanych z ciągami znaków:
+
+1. **Niemutowalność**: W wielu językach programowania, ciągi znaków są niemutowalne, co oznacza, że nie można ich zmieniać po ich utworzeniu. Jeśli chcesz zmienić zawartość ciągu znaków, musisz stworzyć nowy ciąg.
+
+2. **Indeksowanie**: Każdy znak w ciągu znaków ma przypisany indeks, który pozwala na dostęp do poszczególnych znaków w ciągu. Indeksowanie jest często oparte na zerowym indeksie, co oznacza, że pierwszy znak ma indeks 0, drugi znak ma indeks 1, itd.
+
+3. **Operacje na stringach**:
+   - **Konkatenacja**: Łączenie dwóch lub więcej ciągów znaków w jeden.
+   - **Porównywanie**: Porównywanie dwóch ciągów znaków, aby sprawdzić, czy są identyczne.
+   - **Podciągi**: Wyodrębnianie fragmentów ciągów znaków, tworzenie podciągów.
+   - **Zamiana na małe/duże litery**: Zmiana wielkości liter w ciągu (np. zamiana na małe litery, wielkie litery).
+   - **Szukanie**: Wyszukiwanie określonych znaków lub podciągów w ciągu.
+   - **Zamiana znaków**: Zamiana określonych znaków lub podciągów na inne.
+
+4. **Długość ciągu**: Można sprawdzić długość (ilość znaków) ciągu za pomocą odpowiedniej funkcji lub metody.
+
+5. **Escape sequences**: W stringach można używać sekwencji ucieczki (escape sequences) do reprezentowania specjalnych znaków, takich jak znaki nowej linii (\n) czy znaki tabulacji (\t).
+
+6. **Formatowanie**: W wielu językach programowania istnieją narzędzia do formatowania ciągów znaków, co pozwala na tworzenie dynamicznych wiadomości zawierających zmienne wartości.
+
+Stringi są nieodłącznym elementem większości programów, ponieważ tekst jest powszechnie używaną formą komunikacji i przechowywania danych. W językach programowania istnieją różne implementacje i operacje związane z ciągami znaków, dlatego ważne jest, aby zrozumieć sposób pracy z nimi w konkretnym języku, którym się posługujesz.
+```
 
 ____________________________________________________________________________________________________________________________________________________________________________________________________
 
