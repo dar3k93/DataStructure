@@ -1,6 +1,6 @@
 - [Complexity Analysis](#Complexity-Analysis)
-- [Memory](#Memory) - TODO
-- [Big O Notation](#Big-O-Notation) - TODO
+- [Memory](#Memory)
+- [Big O Notation](#Big-O-Notation)
 - [Logarithm](#Logarithm) - TODO
 - [Arrays](#Arrays) - TODO
 - [Linked Lists](#Linked-Lists) - TODO
@@ -73,10 +73,52 @@ Typy pamięci RAM: Istnieją różne rodzaje pamięci RAM, w tym DDR (Double Dat
 
 Pamięć RAM jest jednym z kluczowych czynników wpływających na ogólną wydajność komputera. Im większa i szybsza pamięć RAM, tym komputer jest w stanie obsłużyć większą ilość zadań i działać z większą wydajnością. Jednakże sama pamięć RAM nie przechowuje danych po wyłączeniu zasilania, dlatego ważne jest regularne zapisywanie danych na dysku twardym lub innych trwałych nośnikach
 ```
-____________________________________________________________________________________________________________________________________________________________________________________________________
+___________________________________________________________________________________________________________________________________________________________________________________________________
 
 ## Big O Notation
 
+The notation used to describe the time complexity and space compexity of algorithms.
+Variables used in Big O notation denote the sizes of inputs to algorithms. For example, O(n) might be the time complexity of an algorithm that traverses through an array of length n; similarly, O(n + m) might be the time complexity of an algorithm that traverses through an array of length n and through a string of length m
+The following are examples of common complexities and their Big O notations, ordered from fastest to slowest:
++ Constant: O(1)
++ Logarithmic: O(log(x))
++ Linear: O(n)
++ Log-linear: O(nlog(n))
++ Quadratic: O(n^2)
++ Cubic: O(n^3)
++ Exponential: O(2^n)
++ Factorial: O(n!)
+
+Note that in the context of coding interviews, Big O notation is usually understood to describe the worst-case complexity of an algorithm, even though the worst-case complexity might differ from the average-case complexity. For example, some sorting algorithms have different time complexities depending on the layout of elements in their input array. In rare cases, their
+time complexity will be much worse than in more common cases. Similarly, an algorithm that takes in a string and performs special operations on uppercase characters might have a different time complexity when run on an input string of only uppercase characters vs. on an input string with just a few uppercase characters.
+Thus, when describing the time complexity of an algorithm, it can sometimes be helpful to specify whether the time complexity refers to the average case or to the worst case (e.g., "this algorithm runs in O(nlog(n)) time on average and in O(n^2) time in the worse case").
+
+**Chat GPT**
+```
+Notacja Big O (Big O Notation) jest ważnym pojęciem w kontekście rozmów kwalifikacyjnych na stanowiska programistyczne i analizy algorytmów. Jest to matematyczny sposób określania efektywności czasowej (czas działania) lub przestrzennej (użycie pamięci) algorytmów. Oto kilka kluczowych aspektów notacji Big O w kontekście kodów źródłowych i rozmów kwalifikacyjnych:
+
+1. **Co to jest Notacja Big O?**
+   - Notacja Big O to sposób opisywania tempa wzrostu czasu lub pamięci potrzebnego do wykonania algorytmu w zależności od rozmiaru danych wejściowych. Ostateczny cel to zrozumienie, jak algorytm skaluje się w miarę wzrostu danych.
+
+2. **Ograniczenia Górne:**
+   - Notacja Big O określa górne ograniczenie na czas lub pamięć, co oznacza, że podaje, jak algorytm będzie działać w najgorszym przypadku. Jest to przydatne do analizy wydajności algorytmów, gdy dane wejściowe stają się bardzo duże.
+
+3. **Przykłady Notacji Big O:**
+   - Przykłady często spotykanych notacji Big O to:
+     - O(1): Stała złożoność czasowa lub pamięciowa, co oznacza, że czas lub pamięć jest niezależny od rozmiaru danych wejściowych.
+     - O(n): Liniowa złożoność, gdzie czas lub pamięć rośnie wprost proporcjonalnie do rozmiaru danych wejściowych.
+     - O(log n): Logarytmiczna złożoność, charakteryzująca algorytmy, które są wydajne nawet dla dużych zestawów danych.
+     - O(n^2): Kwadratowa złożoność, która rośnie kwadratowo w stosunku do rozmiaru danych i jest zazwyczaj bardziej kosztowna w przypadku dużych zestawów danych.
+
+4. **Użycie Notacji Big O w Rozmowach Kwalifikacyjnych:**
+   - W rozmowach kwalifikacyjnych notacja Big O jest często używana do oceny zdolności kandydata do analizy i optymalizacji algorytmów.
+   - Kandydat może zostać poproszony o oszacowanie notacji Big O dla danego algorytmu lub napisanie bardziej efektywnego algorytmu do rozwiązania danego problemu.
+
+5. **Znaczenie Optymalizacji:**
+   - Zrozumienie notacji Big O jest kluczowe dla projektantów i programistów, ponieważ pozwala na tworzenie bardziej efektywnych i wydajnych programów oraz unikanie algorytmów o dużym czasie wykonywania lub zużyciu pamięci.
+
+W skrócie, notacja Big O jest narzędziem służącym do analizy i porównywania wydajności algorytmów w zależności od rozmiaru danych wejściowych. Jest ważnym zagadnieniem w rozmowach kwalifikacyjnych i pracy programisty, ponieważ pozwala na tworzenie bardziej wydajnych i skalowalnych rozwiązań.
+```
 ____________________________________________________________________________________________________________________________________________________________________________________________________
 
 ## Logarithm
