@@ -1,7 +1,7 @@
 - [Complexity Analysis](#Complexity-Analysis)
 - [Memory](#Memory)
 - [Big O Notation](#Big-O-Notation)
-- [Logarithm](#Logarithm) - TODO
+- [Logarithm](#Logarithm)
 - [Arrays](#Arrays) - TODO
 - [Linked Lists](#Linked-Lists) - TODO
 - [Hash Tables](#Hash-Tables) - TODO
@@ -122,10 +122,67 @@ W skrócie, notacja Big O jest narzędziem służącym do analizy i porównywani
 ____________________________________________________________________________________________________________________________________________________________________________________________________
 
 ## Logarithm
+A mathematical concept that is widely used in Computer Science and that is definced by the following equation:
 
-____________________________________________________________________________________________________________________________________________________________________________________________________
+![image](https://github.com/dar3k93/DataStructure/assets/49185097/f68c24d0-8416-48d9-ac78-2370af157679)
+
+In the context of coding interviews, the logarithm is used to describe the compelxity analysis of algorithms,a nd its usage always implies a logarithm of base 2. In orther words, the logarithm used in the context of coding interviews is defined by the following equation: 
+
+![image](https://github.com/dar3k93/DataStructure/assets/49185097/5972efdc-a8e0-4c14-a505-f622f37ad75e)
+
+In plain English, if an algorithm has a logarithmic time complexity (O(log(n)), where n is te size of the input)., then whenever the algorithm's input doubles in size (I.e., whenever n doubles), the number of operations ned to complete the algorithm only increases by one unit. Conversely, an algorithm with a linear time complexity would see its number of operations double if its input size doubles.
+
+As an example, a linear-time-complexity algorithm ith an input of size 1,000 might take roughly 1.000 operations to complete, whereas a logarithmi-time-compexity algorithm with the same input would take roughly 10 operations to complete, since 2^10 ~= 1,0000.
+
+**Chat GPT**
+```
+W kontekście struktur danych i algorytmów, logarytm często odnosi się do operacji logarytmicznych, które są wykorzystywane do analizy złożoności obliczeniowej i efektywności algorytmów. Logarytmy są szczególnie istotne w analizie czasu działania i wydajności algorytmów.
+
+Oto kilka ważnych koncepcji związanych z logarytmami w kontekście struktur danych i algorytmów:
+
+1. **Logarytm czasu działania (czasu trwania)**: Logarytm jest używany do mierzenia i analizy złożoności czasowej algorytmów. Algorytmy o czasie trwania logarytmicznym są uważane za bardzo wydajne. Oznacza to, że czas potrzebny na przetworzenie danych wzrasta w sposób logarytmiczny wraz ze wzrostem ilości danych. Przykładem może być algorytm wyszukiwania w posortowanej liście, taki jak wyszukiwanie binarne, który działa w czasie logarytmicznym.
+
+2. **Drzewa i grafy**: Logarytmy są często używane do analizy złożoności struktur danych, takich jak drzewa i grafy. Na przykład, wysokość drzewa binarnego jest związana z logarytmem liczby wierzchołków w drzewie. Logarytmiczna złożoność występuje również w algorytmach przeszukiwania drzew, takich jak AVL drzewa czy drzewa czerwono-czarne.
+
+3. **Równoważenie struktur danych**: Logarytmy są kluczowe w zrozumieniu równoważenia struktur danych, takich jak drzewa AVL i drzewa czerwono-czarne. Dzięki właściwemu równoważeniu, operacje na tych strukturach danych są wykonywane w czasie logarytmicznym.
+
+4. **Algorytmy dziel i zwyciężaj**: Algorytmy, które wykorzystują technikę dziel i zwyciężaj, często wykazują logarytmiczną złożoność czasową. W tego typu algorytmach dane są podzielone na mniejsze części, co pozwala na efektywne przeszukiwanie i rozwiązywanie problemu.
+
+W skrócie, logarytmy są ważnym narzędziem do analizy i porównywania wydajności różnych algorytmów i struktur danych w kontekście obliczeń i złożoności czasowej. Oceniają, jak dany algorytm lub struktura danych skaluje się w zależności od ilości danych lub innych czynników. Algorytmy o logarytmicznej złożoności czasowej są szczególnie pożądane ze względu na ich efektywność i wydajność w analizie i przetwarzaniu dużych zbiorów danych.
+```
+
+___________________________________________________________________________________________________________________________________________________________________________________________________
 
 ## Arrays
+A linear collection of data values tht are accessible at numbered indices, starting at index 0.
+The following are an array's standard operations and their corresponding time complexities:
+
+![image](https://github.com/dar3k93/DataStructure/assets/49185097/b3557ee4-a561-4d40-8173-f775b78f70b1)
+
+A tstaic array is an implementation of an array that llocates a ixed amount of memory to be used for storing the array's values. Appending vlues to the array therefore involves copyinmg the entire array and allocating new memory for it, accountin for the extra space needed for te newly appended value. This is a linear-time operation
+
+A dynamic array is an implementation of an array that preemptively allocates double the amount of memory needed to store the array's values. Appendig values to the array is a constant-time operation until the allocated memory is filled up, at which point the array is copied and double the memory is once again allocated fo it. This implementation leads to an amortized constant-time insertion-at-end operation
+
+**Chat GPT**
+```
+W kontekście struktur danych, tablica (ang. array) jest podstawową strukturą, która służy do przechowywania elementów o jednakowym typie danych w formie sekwencji lub listy. Tablice są szeroko wykorzystywane w programowaniu do organizowania i przechowywania danych, zwłaszcza w językach programowania, gdzie dostęp do elementów tablicy odbywa się poprzez indeksy.
+
+Oto kilka kluczowych cech tablic w kontekście struktur danych:
+
+1. **Jednorodność**: W tablicy przechowywane są elementy tego samego typu danych. Na przykład, można mieć tablicę liczb całkowitych, łańcuchów znaków lub dowolnego innego typu danych. Jednak wszystkie elementy w tablicy są tego samego typu.
+
+2. **Indeksowanie**: Każdy element w tablicy jest indeksowany, co oznacza, że można uzyskać dostęp do elementu, podając numer indeksu. Indeksy zazwyczaj zaczynają się od zera lub od jedynki, w zależności od konwencji języka programowania.
+
+3. **Statyczna lub dynamiczna wielkość**: Tablice mogą mieć stałą, określoną wielkość na etapie tworzenia (statyczne tablice), lub mogą zmieniać swoją wielkość w trakcie działania programu (dynamiczne tablice). W językach programowania takich jak C/C++, statyczne tablice mają stałą liczbę elementów, podczas gdy w językach takich jak Python, dynamiczne tablice (listy) mogą dynamicznie zmieniać rozmiar.
+
+4. **O(1) dostęp do elementu**: Dostęp do elementu w tablicy jest zazwyczaj bardzo szybki i ma złożoność czasową O(1), ponieważ indeksowanie tablicy odbywa się w sposób bezpośredni, bez konieczności przeszukiwania. Jest to jedna z głównych zalet tablic w porównaniu do innych struktur danych.
+
+5. **Operacje na tablicach**: Tablice pozwalają na różnego rodzaju operacje, takie jak dodawanie nowych elementów, usuwanie istniejących elementów, sortowanie, przeszukiwanie, modyfikację, kopiowanie i wiele innych.
+
+6. **Tablice wielowymiarowe**: Tablice mogą być wielowymiarowe, co oznacza, że można tworzyć tablice, które mają więcej niż jeden wymiar. Na przykład, tablica dwuwymiarowa jest organizowana jako siatka, która ma wiersze i kolumny.
+
+Tablice są fundamentalnym elementem struktur danych i są używane w wielu algorytmach i programach do przechowywania i zarządzania danymi. Są prostym, ale potężnym narzędziem w programowaniu, które umożliwiają efektywne operacje na danych o stałym typie.
+```
 
 ____________________________________________________________________________________________________________________________________________________________________________________________________
 
