@@ -188,14 +188,130 @@ ________________________________________________________________________________
 
 ## Linked Lists
 
+![image](https://github.com/dar3k93/DataStructure/assets/49185097/e66db100-04e7-4549-b06d-c61c161079df)
+
+**Chat GPT**
+```
+
+Lista jednokierunkowa (ang. Linked List) to jedna z podstawowych struktur danych w informatyce, używana do przechowywania i organizacji danych w sposób dynamiczny. Lista jednokierunkowa składa się z węzłów, z których każdy zawiera pewną wartość (dane) oraz wskaźnik (lub referencję) do następnego węzła. Struktura ta jest bardzo elastyczna i umożliwia skonstruowanie sekwencji danych o zmiennej długości. Oto główne cechy listy jednokierunkowej:
+
+1. **Węzły**: Węzły stanowią podstawowe elementy listy jednokierunkowej. Każdy węzeł zawiera dane (często nazywane "elementem" lub "wartością") oraz wskaźnik do następnego węzła w liście.
+
+2. **Wskaźnik do następnego węzła**: Wskaźnik (lub referencja) do następnego węzła pozwala na przechodzenie od jednego węzła do kolejnego w całej liście. Dzięki temu listy jednokierunkowe są skonstruowane w sposób liniowy, umożliwiający efektywne przeglądanie i modyfikację danych.
+
+3. **Brak wskaźnika do poprzedniego węzła**: W odróżnieniu od listy dwukierunkowej (ang. doubly linked list), lista jednokierunkowa nie posiada wskaźników do poprzednich węzłów. Oznacza to, że można poruszać się tylko w jednym kierunku, od początku listy do jej końca.
+
+4. **Punkt początkowy (head)**: Lista jednokierunkowa ma jeden węzeł, który stanowi punkt początkowy lub "głowicę" listy. To od niego rozpoczyna się przegląd i operacje na całej liście.
+
+5. **Zakończenie listy**: Ostatni węzeł w liście jednokierunkowej ma wskaźnik, który wskazuje na NULL (lub None w niektórych językach programowania), co oznacza, że jest to koniec listy.
+
+Główne operacje wykonywane na listach jednokierunkowych to:
+- Dodawanie elementu na koniec listy (append).
+- Dodawanie elementu na początek listy (prepend).
+- Wyszukiwanie elementu w liście.
+- Usuwanie elementu z listy.
+- Przeglądanie listy (od początku do końca).
+- Inne operacje w zależności od potrzeb, takie jak odwracanie listy czy scalanie dwóch list.
+
+Listy jednokierunkowe są szczególnie przydatne, gdy trzeba dynamicznie zarządzać danymi o zmiennej ilości elementów, bez konieczności alokowania dużego bloku pamięci na stałe. Są często wykorzystywane w implementacjach struktur danych takich jak stosy, kolejki i wiele innych.
+```
+
+
 ____________________________________________________________________________________________________________________________________________________________________________________________________
 
 ## Hash Tables
+A data structure that provides fast insertion, deletion, and lookup of key/value
 
+Under teh hood, a hash uses a dynamic array of linked lists to efficiently store key/value paris. When inserting a key/value pair., a hash function first maps the key, which is typically a string (or any datya that can be hashed, depending on the implementation of the hash table), to an integer value and by extension, to an index in the underlying dynamic array. Then, the value associated with key is added to the linked lis storeed at that index in the dynamic array, and referece to the key is also stored with value.
+
+Hash tables rely on highly optimized hash function to minimize the number of collisions that occur when storing values: cases where two keys mpa to the same index.
+
+Below is an example of what a hash table might look like under the hoodL
+```
+[
+  0: (value1, key1) -> null
+  1: (value2, key2) -> (value3, key3) -> (value4, key4)
+  2: (value5, key5) -> null
+  3: (value6, key6) -> null
+  4: null
+  5: (value7, key7) -> (value8, key8)
+  6: (value9, key9) -> null
+]
+```
+
+In the hash table above the keys key2, kay3 and key4 collidad by all being hashed to 1, andthe keys key7 and key8 collided by both being hash to 5.
+The following are a hash table's standard operations and their corresponding time complexities:
+- Inserting a key/value pair: o(1) on average; O(n) in the worse case
+- Rmoving a key/value pair: O(1) on average; O(n) in the wore case
+- Looking up a key: O(1) on average; O(n) in the worse case
+
+The worst-case linear-time operations occur when a hash table experiences a lot ofcollisions, leading to long linked lists internally which take O(n) time to reaverse.
+However, in practice and especially in coding interviews, we typically assume that hash functions employed by hash tyables are so optimized that collisionms are extremey rare and constant-time operartions are all but guaranteed
+
+**Chat gpt**
+```
+HashTable (zwana również tabelą haszową) to struktura danych używana do przechowywania danych w postaci par klucz-wartość, gdzie każdy klucz jest mapowany na określoną wartość. HashTable jest implementowana jako tablica, w której indeksy (klucze) są przekształcane za pomocą funkcji haszującej na indeksy tablicy, w której przechowywane są odpowiadające wartości. Jest to bardzo efektywna struktura danych, jeśli chodzi o szybki dostęp do elementów, o ile funkcja haszująca jest odpowiednio dobrana i unikatowa.
+
+Kluczowe cechy struktury danych HashTable:
+
+1. **Funkcja haszująca**: Funkcja haszująca przyjmuje klucz jako wejście i generuje indeks w tablicy haszowej. Dobrze zaprojektowana funkcja haszująca ma na celu minimalizowanie kolizji, czyli sytuacji, w której dwa różne klucze mapują się na ten sam indeks. 
+
+2. **Tablica**: HashTable składa się z tablicy, w której przechowywane są wartości. Indeksy tej tablicy generowane są za pomocą funkcji haszującej.
+
+3. **Szybki dostęp**: Jedną z najważniejszych zalet HashTable jest możliwość szybkiego dostępu do elementów. Jeśli funkcja haszująca jest dobrze zaprojektowana i kolizje są minimalizowane, dostęp do elementu odbywa się w stałym czasie (średnio O(1)).
+
+4. **Wstawianie i usuwanie**: Wstawianie i usuwanie elementów również jest efektywne, o ile nie występują częste kolizje.
+
+5. **Kolizje**: Kolizje mogą występować, gdy dwie różne wartości mapują się na ten sam indeks tablicy. W takim przypadku konieczne jest rozwiązanie kolizji za pomocą technik takich jak rozpraszanie liniowe, wiązanie łańcuchowe (lista wiązana w przypadku kolizji) lub podwójne haszowanie.
+
+6. **Rozmiar tablicy**: Rozmiar tablicy haszowej jest ważnym czynnikiem. Zbyt mała tablica może prowadzić do częstych kolizji, podczas gdy zbyt duża tablica może prowadzić do marnowania zasobów. Optymalny rozmiar zależy od konkretnego zastosowania.
+
+Przykłady zastosowań HashTable obejmują przechowywanie informacji o słownikach, katalogach, przechowywanie sesji w aplikacjach internetowych, implementację słowników (map) w językach programowania, itp.
+
+Ważne jest, aby wybierać odpowiednie funkcje haszujące i rozmiary tablicy, aby zapewnić efektywną pracę struktury HashTable i minimalizować ryzyko kolizji. Odpowiednie zaprojektowanie i optymalizacja tej struktury danych jest kluczowa dla wydajności wielu aplikacji.
+```
 ____________________________________________________________________________________________________________________________________________________________________________________________________
 
 ## Stacks and Queues
 
+![image](https://github.com/dar3k93/DataStructure/assets/49185097/000f7d33-c58b-4f5f-9fae-b7153ed5075c)
+
+**Chat GPT**
+```
+Stacks (stosy) i Queues (kolejki) to dwie podstawowe struktury danych, które są często wykorzystywane w programowaniu do rozwiązywania różnych problemów. Oto opis tych struktur w kontekście struktur danych:
+
+**1. Stos (Stack):**
+- Stos to struktura danych, w której elementy są przechowywane w taki sposób, że ostatnio dodany element jest pierwszy do usunięcia - zasada "last-in, first-out" (LIFO). 
+- Główne operacje stosu to `push` (dodawanie elementu na wierzch stosu) i `pop` (usuwanie elementu z wierzchu stosu).
+- Stosy są często wykorzystywane do śledzenia kontekstu wywołania funkcji (zasobów, które zostaną zwolnione, kiedy funkcja zakończy swoje działanie) lub do implementacji algorytmów rekurencyjnych.
+
+Przykład użycia stosu w języku programowania Python:
+```python
+stack = []
+stack.append(1)  # push(1)
+stack.append(2)  # push(2)
+stack.append(3)  # push(3)
+top = stack.pop()  # pop(), top = 3
+```
+
+**2. Kolejka (Queue):**
+- Kolejka to struktura danych, w której elementy są przechowywane w taki sposób, że pierwszy dodany element jest pierwszy do usunięcia - zasada "first-in, first-out" (FIFO).
+- Główne operacje kolejki to `enqueue` (dodawanie elementu na końcu kolejki) i `dequeue` (usuwanie elementu z początku kolejki).
+- Kolejki są używane do modelowania procesów obsługi zadań, takich jak algorytmy planowania zadań, obsługi zapytań w serwerach, itp.
+
+Przykład użycia kolejki w języku programowania Python (wykorzystując moduł `collections`):
+```python
+from collections import deque
+
+queue = deque()
+queue.append(1)  # enqueue(1)
+queue.append(2)  # enqueue(2)
+queue.append(3)  # enqueue(3)
+front = queue.popleft()  # dequeue(), front = 1
+```
+
+Ogólnie rzecz biorąc, stosy i kolejki są przykładami struktur danych, które pozwalają na kontrolowane zarządzanie elementami danych w kontekście LIFO (stos) lub FIFO (kolejka). Wybór między nimi zależy od konkretnej sytuacji i potrzeb projektu. Stosy są często używane do śledzenia stanu lub wykonywania działań związanych z rekurencją, podczas gdy kolejki są bardziej odpowiednie do obsługi procesów i zadań w porządku ich przyjścia.
+```
 ____________________________________________________________________________________________________________________________________________________________________________________________________
 
 ## Strings
@@ -244,8 +360,64 @@ ________________________________________________________________________________
 
 ## Graphs
 
+![image](https://github.com/dar3k93/DataStructure/assets/49185097/5c8ff536-f16c-4dc7-9811-21f3e67af261)
+
+**Chat GPT**
+```
+Graf to jedna z podstawowych struktur danych używanych w informatyce do modelowania i analizy relacji między różnymi elementami. Grafy są wykorzystywane w szerokim zakresie zastosowań, od analizy sieci społecznych i tras w nawigacji, po optymalizację tras w dostawie towarów i wiele innych dziedzin. W kontekście struktury danych, grafy mają następujące cechy i elementy:
+
+1. **Węzły (wierzchołki)**: Węzły reprezentują elementy, miasta, osoby, punkty danych itp., które są połączone w grafie. Każdy węzeł jest unikalnie identyfikowany w grafie.
+
+2. **Krawędzie**: Krawędzie reprezentują relacje lub połączenia między węzłami. Krawędzie mogą mieć różne właściwości, takie jak wagi (koszty), kierunek (w grafach skierowanych) lub etykiety.
+
+3. **Wierzchołek początkowy i końcowy**: W grafach skierowanych (z kierunkiem), każda krawędź ma wierzchołek początkowy (źródło) i wierzchołek końcowy (cel). W grafach nieskierowanych, krawędź łączy dwa wierzchołki i nie ma znaczenia, który jest początkowym, a który końcowym.
+
+4. **Cykl**: Cykl to zamknięta sekwencja krawędzi, która zaczyna się i kończy w tym samym wierzchołku. Cykle mogą być problematyczne w niektórych rodzajach grafów, zwłaszcza w kontekście wyszukiwania ścieżek, ponieważ mogą prowadzić do nieskończonych pętli.
+
+5. **Graf skierowany vs. graf nieskierowany**: W grafach skierowanych, krawędzie mają określony kierunek, podczas gdy w grafach nieskierowanych, krawędzie nie mają określonego kierunku. Na przykład, w sieci społecznej, relacje przyjacielskie są nieskierowane, ponieważ przyjaźń działa w obie strony, ale w sieci przewozowej (np. dróg) kierunek ruchu ma znaczenie, więc graf jest skierowany.
+
+6. **Waga krawędzi**: Niektóre grafy mają wagi na krawędziach, które reprezentują różne koszty lub odległości między węzłami. Grafy z wagami są często wykorzystywane w problemach optymalizacyjnych, takich jak znalezienie najkrótszej ścieżki.
+
+7. **Grafy spójne i niespójne**: Graf spójny to taki, w którym istnieje co najmniej jedna ścieżka między dowolnymi dwoma wierzchołkami. Graf niespójny to taki, który składa się z kilku oddzielnych składowych grafów spójnych.
+
+8. **Reprezentacja**: Grafy mogą być reprezentowane na różne sposoby, takie jak lista sąsiedztwa (adjacency list), macierz sąsiedztwa (adjacency matrix), czy reprezentacje hybrydowe, w zależności od konkretnego zastosowania i wymagań wydajnościowych.
+
+Grafy są używane do rozwiązywania wielu problemów, takich jak znajdowanie najkrótszych ścieżek, wyszukiwanie w głąb, algorytmy minimalnego drzewa rozpinającego (MST), analiza sieci społecznych, planowanie tras i wiele innych. Ich elastyczność i możliwość reprezentowania złożonych relacji między danymi czyni je kluczowymi w dziedzinie algorytmów i analizy danych.
+```
+
 ____________________________________________________________________________________________________________________________________________________________________________________________________
 
 ## Trees
+
+![image](https://github.com/dar3k93/DataStructure/assets/49185097/785eeead-e5c5-459b-8f16-16161ae3d4f4)
+
+**Chat GPT**
+```
+Drzewo (ang. tree) to jedna z fundamentalnych struktur danych w informatyce, która jest używana do organizacji i hierarchicznego reprezentowania danych. Drzewa są skonstruowane z węzłów połączonych krawędziami i posiadają korzeń (root) oraz węzły wewnętrzne i liście (ang. leaves). Drzewa są wykorzystywane w wielu dziedzinach informatyki, w tym w bazach danych, systemach operacyjnych, analizie języków naturalnych, grafice komputerowej i wielu innych. Oto główne cechy drzew w kontekście struktur danych:
+
+1. **Korzeń (root)**: Korzeń drzewa to węzeł, który jest na samym szczycie hierarchii. Każdy inny węzeł drzewa jest osiągalny z korzenia za pomocą ścieżki.
+
+2. **Węzły wewnętrzne**: Węzły wewnętrzne to węzły, które posiadają co najmniej jedno dziecko. Są one pośrednimi węzłami na drodze od korzenia do liści.
+
+3. **Liście (leaves)**: Liście to węzły, które nie posiadają dzieci. Są to końcowe punkty drzewa, które nie mają podwęzłów.
+
+4. **Krawędzie**: Krawędzie łączą węzły w drzewie. Każda krawędź łączy węzeł nadrzędny z jednym z jego węzłów potomnych.
+
+5. **Poziomy (levels)**: Poziomy drzewa to poziome warstwy w hierarchii drzewa. Poziom 0 to korzeń, poziom 1 to dzieci korzenia, poziom 2 to wnuki korzenia, itp.
+
+6. **Wysokość (height)**: Wysokość drzewa to maksymalny poziom w drzewie, czyli najdłuższa ścieżka od korzenia do dowolnego liścia.
+
+7. **Poddrzewo (subtree)**: Poddrzewo to część drzewa, która jest również drzewem. Może być izolowanym poddrzewem lub częścią większego drzewa.
+
+8. **Drzewo binarne**: Drzewo binarne to szczególny rodzaj drzewa, w którym każdy węzeł może mieć co najwyżej dwóch potomków: lewego i prawego. Drzewa binarne są często wykorzystywane w algorytmach sortowania, przeszukiwania, itp.
+
+9. **Inne rodzaje drzew**: Oprócz drzew binarnych istnieją również inne rodzaje drzew, takie jak drzewa AVL (samo-wyważające się drzewa binarne), drzewa czerwono-czarne, drzewa B-drzew, drzewa Trie, drzewa Quadtree (używane w grafice komputerowej) i wiele innych.
+
+Drzewa są szeroko stosowane w programowaniu i informatyce ze względu na ich zdolność do hierarchicznego organizowania danych. Mogą być wykorzystywane do skomplikowanych operacji wyszukiwania, sortowania, organizacji danych i grafiki komputerowej, a także w strukturach danych takich jak drzewa BST (Binary Search Tree), drzewa XML w analizie języków naturalnych, i wiele innych. Ich zrozumienie i umiejętność obsługi drzew są kluczowe dla każdego programisty i inżyniera oprogramowania.
+```
+
+
+
+
 
 
